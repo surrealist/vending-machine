@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Product>
+
+<h3>Products</h3>
+
+<a asp-action="Create"
+   asp-controller="Products">
+  Add New
+</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Picture</th>
+      <th>Featured?</th>
+      <th>Weight(g)</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (Model.Count() == 0) {
+      <tr>
+        <td colspan="6"
+            class="text-center">
+          <i>No product found</i>
+        </td>
+      </tr>
+    }
+    else {
+      foreach (var p in Model) {
+        <tr>
+          <td onclick="fn('@p.Name')">@p.Id</td>
+          <td>@p.Name</td>
+          <td>@p.Price</td>
+          <td>@p.PictureUrl</td>
+          <td>@p.IsFeatured</td>
+          <td>@p.WeightGrams</td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>
+
+<script>
+  function fn(productId) {
+    console.log('This is ' + productId);
+  }
+</script>

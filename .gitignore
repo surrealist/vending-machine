@@ -1,0 +1,5 @@
+bin/
+obj/
+VendingMachines/wwwroot/lib
+.vs/
+.vscode/
